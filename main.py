@@ -9,47 +9,47 @@ import scipy as sp
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
 
-    r_l1m1 = Pendulum_Analysis.PendulumData("R_L1M1.txt")
+    r_l1m1 = Pendulum_Analysis.PendulumData("specs_original/R_L1M1.txt")
     # print(r_l1m1.angle_peaks[-14:-1])
     # print(r_l1m1.angle_peak_times[-14:-1])
 
     # plt.show()
 
-    r_l1m1_no_tail = Pendulum_Analysis.PendulumData("R_L1M1_no_tail.txt")
+    r_l1m1_no_tail = Pendulum_Analysis.PendulumData("specs_original/R_L1M1_no_tail.txt")
     plt.title("Length 1 Mass 1, Tail Removed")
     # plt.show()
 
-    r_l1m2 = Pendulum_Analysis.PendulumData("R_L1M2.txt")
+    r_l1m2 = Pendulum_Analysis.PendulumData("specs_original/R_L1M2.txt")
     plt.title("Length 1 Mass 2")
     # plt.show()
 
-    r_l1m3 = Pendulum_Analysis.PendulumData("R_L1M3.txt")
+    r_l1m3 = Pendulum_Analysis.PendulumData("specs_original/R_L1M3.txt")
     plt.title("Length 1 Mass 3")
     # plt.show()
 
-    r_l1m4 = Pendulum_Analysis.PendulumData("R_L1M4.txt")
+    r_l1m4 = Pendulum_Analysis.PendulumData("specs_original/R_L1M4.txt")
     plt.title("Length 1 Mass 4")
     # plt.show()
 
-    r_l2m2 = Pendulum_Analysis.PendulumData("R_L2M2.txt")
+    r_l2m2 = Pendulum_Analysis.PendulumData("specs_original/R_L2M2.txt")
     plt.title("Length 2 Mass 2")
     # plt.show()
 
-    r_l3m2 = Pendulum_Analysis.PendulumData("R_L3M2.txt")
+    r_l3m2 = Pendulum_Analysis.PendulumData("specs_original/R_L3M2.txt")
     plt.title("Motion of Pendulum with Length (34±1)cm and Mass(199.7±0.1)g: Angle in Degrees v.s. Time(s)")
     plt.xlabel("Time(s)")
     plt.ylabel("Angle(degrees)")
     # plt.show()
 
-    r_l4m2 = Pendulum_Analysis.PendulumData("R_L4M2.txt")
+    r_l4m2 = Pendulum_Analysis.PendulumData("specs_original/R_L4M2.txt")
     plt.title("Length 4 Mass 2")
     # plt.show()
 
-    r_l5m2 = Pendulum_Analysis.PendulumData("R_L5M2.txt")
+    r_l5m2 = Pendulum_Analysis.PendulumData("specs_original/R_L5M2.txt")
     plt.title("Length 5 Mass 2")
     # plt.show()
 
-    r_l6m2 = Pendulum_Analysis.PendulumData("R_L6M2.txt")
+    r_l6m2 = Pendulum_Analysis.PendulumData("specs_original/R_L6M2.txt")
     plt.title("Length 6 Mass 2")
     # plt.show()
 

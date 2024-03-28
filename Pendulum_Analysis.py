@@ -22,7 +22,6 @@ class PendulumData:
         self.time_uncertainties = None
         self.uncertainty_population(len(self.angles))
 
-        self.angles
 
         self.angle_positive_peaks_indices = sp.signal.find_peaks(self.angles)[0].tolist()
         self.angle_positive_peaks = [self.angles[x] for x in self.angle_positive_peaks_indices]
