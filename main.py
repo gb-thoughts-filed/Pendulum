@@ -164,18 +164,18 @@ print(decay_goodness_of_fit)
 lengths = [18, 1], [26, 1], [32, 1], [34, 1], [39, 1], [38, 1]
 length_values = [18, 26, 32, 34, 38, 39]
 
-# r_l1m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l1m2.angle_positive_peaks)
-# print(r_l1m2_twenties)
-# r_l2m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l2m2.angle_positive_peaks)
-# print(r_l2m2_twenties)
-# r_l3m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l3m2.angle_positive_peaks)
-# print(r_l3m2_twenties)
-# r_l4m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l4m2.angle_positive_peaks)
-# print(r_l4m2_twenties)
-# r_l5m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l5m2.angle_positive_peaks)
-# print(r_l5m2_twenties)
-# r_l6m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l6m2.angle_positive_peaks)
-# print(r_l6m2_twenties)
+r_l1m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l1m2.angle_positive_peaks)
+print(r_l1m2_twenties)
+r_l2m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l2m2.angle_positive_peaks)
+print(r_l2m2_twenties)
+r_l3m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l3m2.angle_positive_peaks)
+print(r_l3m2_twenties)
+r_l4m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l4m2.angle_positive_peaks)
+print(r_l4m2_twenties)
+r_l5m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l5m2.angle_positive_peaks)
+print(r_l5m2_twenties)
+r_l6m2_twenties = Pendulum_Analysis.return_peaks_twenties(r_l6m2.angle_positive_peaks)
+print(r_l6m2_twenties)
 
 length_theta_not_choice = [21.5, 21.3, 21.4, 21.4, 21.2, 21.5]
 

@@ -4,7 +4,7 @@ import scipy as sp
 
 class PendulumData:
 
-    def __init__(self, text_file: str, mass_length):
+    def __init__(self, text_file: str, mass_length, angle_span, points_angle_span):
 
         # Main data points from text file extracted.
         self.frames = None
@@ -12,6 +12,8 @@ class PendulumData:
         self.times = None
         self.xs = None
         self.ys =None
+        self.angle_span = angle_span
+        self.points_angle_span = points_angle_span
         self.mass_length = mass_length
         self.text_file_str = text_file
         self.text_file_ingestion(text_file)
@@ -45,13 +47,14 @@ class PendulumData:
 
         # Angle uncertainties calculated based on x and y measurements.
         self._angle_distance = [np.abs(self.angles[i+1]-self.angles[i]) for i in np.arange(len(self.angles) - 1)]
+        self._average_angle_distance = np.average(self._angle_distance)
         self._max_angle_distance = np.max(self._angle_distance)
-        print(self._max_angle_distance)
+        #print(self._max_angle_distance)
         #self.angle_uncertainties = angle_uncertainty_calculation(self.xs, self.xs_uncertainties, self.ys, self.ys_uncertainties)
-        self.angle_uncertainties = uncertainty_population(len(self.angles), self._max_angle_distance/2)
+        self.angle_uncertainties = uncertainty_population(len(self.angles), self.angle_span/2)
 
         # Time uncertainties populated.
-        self.time_uncertainties = uncertainty_population(len(self.times), 0.0166666)
+        self.time_uncertainties = uncertainty_population(len(self.times), 0.02*self.points_angle_span/2)
 
         # Conversion of angles and angle uncertainties into radians
         self.angles = [i*(np.pi/180) for i in self.angles]
@@ -110,6 +113,10 @@ class PendulumData:
 
 
 
+    def __str__(self):
+        lst=[]
+        lst.append(self.text_file_str.split("_"))
+        return lst[0][1]
 
     def text_file_ingestion(self, text_file:str) -> None:
 
@@ -199,8 +206,16 @@ def non_linear(x, c, d, e):
 def log(x, c, d, e):
     return c*np.log(d*x) + e
 
-def exponential(x, c, d, e):
-    return np.exp(c*(x+d)) + e
+def exponential(x, a, b, c, d):
+    return d*np.exp((-1)*a*x+b) + c
+
+def absolute_value(x, a, b, c):
+    return np.abs(a*(x+b)) + c
+
+def puncture_graph(x, a, b, c, d):
+    return (-1)*b*(abs(x + c) + a)**2 + d
+
+# def simple_angle_model(tau):
 
 def cos_time_period_model(x, T, a, b):
     return a*np.cos(2*np.pi*(x/T)) + b
@@ -220,7 +235,7 @@ def reduced_chi_squared(data_ys, predicted_ys, uncertainties, num_elements, num_
 def return_peaks_twenties(peaks: list):
     twenties = []
     for i in peaks:
-        if  20 < i < 23:
+        if  20*(np.pi/180) < i < 23*(np.pi/180):
             twenties.append(i)
     return twenties
 
